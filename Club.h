@@ -221,7 +221,7 @@ public:
 
     void kickOutAll() {
         std::vector<std::string> temp;
-        temp.reserve(clients_.size() + clientsQueue_.size());
+        temp.reserve(clients_.size());
         for (auto& [name, p]: clients_) {
             auto [tableId, qPos] = p;
             temp.push_back(name);
