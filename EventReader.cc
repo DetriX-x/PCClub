@@ -56,6 +56,8 @@ tuple<pair<string, uint64_t>, uint64_t, string, optional<uint64_t>> EventReader:
             throw ParseError(to_string(lineNum_));
         }
         opt = tableId;
+    } else if (eventId > 4) {
+        throw ParseError(to_string(lineNum_));
     }
     if (tokens.size() != targetSize) {
         throw ParseError(to_string(lineNum_));
