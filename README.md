@@ -16,4 +16,4 @@ cmake ..
 make 
 ```
 # Use
-./club_simulator < ../tests/test.txt
+./club_simulator ../tests/test.txt
