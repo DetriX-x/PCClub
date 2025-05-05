@@ -45,6 +45,7 @@ std::tuple<bool, uint64_t, uint64_t, uint64_t, uint64_t> parseInitParams(std::if
 int main(int argc, char** argv) {
     std::ifstream in;
     if (argc < 2) {
+        std::cout << "File was not specified: " << argv[1] << '\n';
         return EXIT_SUCCESS;
     }
     in.open(argv[1]);
