@@ -78,7 +78,7 @@ pair<uint64_t, bool> EventReader::toInt(const std::string& s) {
     try {
         size_t pos;
         res = std::stoull(s, &pos);
-        if (pos != s.size()) {
+        if (pos != s.size() || !res) {
             return {0, false};
         }
     } catch (...) {
