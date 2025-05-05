@@ -9,6 +9,7 @@
 #include <vector>
 #include <tuple>
 #include <exception>
+#include <fstream>
 
 using std::cin, std::cout, std::string, std::stringstream,
       std::exception, std::tuple, std::unique_ptr, std::optional, std::pair,
@@ -32,10 +33,12 @@ constexpr uint64_t START_LINE = 4;
 
 class EventReader {
 private:
+    std::ifstream& in_;
     uint64_t lineNum_;
     uint64_t maxTableId_;
 public:
-    EventReader(uint64_t ln = START_LINE, uint64_t maxTableId_ = 1e9);
+    EventReader(std::ifstream& in, uint64_t ln = START_LINE, uint64_t maxTableId = 1e9);
+
     string readEvent() const;
 
     tuple<pair<string, uint64_t>, uint64_t, string, optional<uint64_t>> parseEvent(const string& s);

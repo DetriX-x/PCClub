@@ -1,19 +1,20 @@
 #include <iostream>
+#include <fstream>
 #include "Club.h"
 #include "EventFactory.h"
 #include "EventReader.h"
 
-std::tuple<bool, uint64_t, uint64_t, uint64_t, uint64_t> parseInitParams() {
+std::tuple<bool, uint64_t, uint64_t, uint64_t, uint64_t> parseInitParams(std::ifstream& in) {
     std::string s;
-    std::getline(std::cin, s);
-    EventReader er(2);
+    std::getline(in, s);
+    EventReader er(in, 2);
     auto [countOfTabels, ok] = er.toInt(s);
     if (!ok || !countOfTabels) {
         std::cout << 1 << '\n';
         return {false,{},{},{},{}};
     }
 
-    std::getline(std::cin, s);
+    std::getline(in, s);
     auto splitted = er.split(s, ' ');
     if (splitted.size() != 2) {
         std::cout << 2 << '\n';
@@ -31,7 +32,7 @@ std::tuple<bool, uint64_t, uint64_t, uint64_t, uint64_t> parseInitParams() {
         return {false,{},{},{},{}};
     }
 
-    std::getline(std::cin, s);
+    std::getline(in, s);
     auto [price, flag] = er.toInt(s);
     if (!flag || !price) {
         std::cout << 3 << '\n';
@@ -41,12 +42,21 @@ std::tuple<bool, uint64_t, uint64_t, uint64_t, uint64_t> parseInitParams() {
 }
 
 
-int main() {
-    auto [flag, countOfTabels, sTime, eTime, price] = parseInitParams();
+int main(int argc, char** argv) {
+    std::ifstream in;
+    if (argc < 2) {
+        return EXIT_SUCCESS;
+    }
+    in.open(argv[1]);
+    if (!in.is_open()) {
+        std::cout << "Can not open file: " << argv[1] << '\n';
+        return EXIT_SUCCESS;
+    }
+    auto [flag, countOfTabels, sTime, eTime, price] = parseInitParams(in);
     if (!flag) return EXIT_SUCCESS;
 
 
-    EventReader er(4, countOfTabels);
+    EventReader er(in, 4, countOfTabels);
     EventFactory eventFactory(er);
     Club club(countOfTabels, sTime, eTime, price);
     try {

@@ -12,13 +12,13 @@ const char* ParseError::what() const noexcept {
     return msg.c_str();
 }
 
-EventReader::EventReader(uint64_t ln, uint64_t maxTableId)
-    : lineNum_(ln), maxTableId_(maxTableId) {}
+EventReader::EventReader(std::ifstream& in, uint64_t ln, uint64_t maxTableId)
+    : in_{in}, lineNum_(ln), maxTableId_(maxTableId) {}
 
 string EventReader::readEvent() const {
     string s;
-    getline(cin, s);
-    if (!cin) {
+    getline(in_, s);
+    if (!in_) {
         throw EndOfFile("End of file");
     }
     return s;
