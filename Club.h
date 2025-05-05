@@ -71,8 +71,8 @@ public:
     Club(uint64_t countOfTabels, uint64_t startTime, uint64_t endTime, uint64_t price)
         : manager_(countOfTabels, startTime, endTime, price) {}
 
-    void addEvent(const IEvent& event) {
-        events_.push_back(event);
+    void addEvent(IEvent event) {
+        events_.push_back(std::move(event));
     }
 
     void processAll() {
