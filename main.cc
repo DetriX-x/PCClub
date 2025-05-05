@@ -73,8 +73,8 @@ int main(int argc, char** argv) {
     }
     std::cout << timeToString(sTime) << '\n';
     club.processAll();
-    club.kickOutAll();
+    club.manager_.kickOutAll();
     std::cout << timeToString(eTime) << '\n';
 
-    club.showStats();
+    club.manager_.showStats();
 }
