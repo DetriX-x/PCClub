@@ -1,0 +1,53 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-I/home/ketrix/programs/cpp/Yadro/git/PCClub",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++20",
+      "-c",
+      "-o",
+      "CMakeFiles/club_simulator.dir/main.cc.o",
+      "/home/ketrix/programs/cpp/Yadro/git/PCClub/main.cc"
+    ],
+    "directory": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build",
+    "file": "/home/ketrix/programs/cpp/Yadro/git/PCClub/main.cc",
+    "output": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build/CMakeFiles/club_simulator.dir/main.cc.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-I/home/ketrix/programs/cpp/Yadro/git/PCClub",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++20",
+      "-c",
+      "-o",
+      "CMakeFiles/club_simulator.dir/Event.cc.o",
+      "/home/ketrix/programs/cpp/Yadro/git/PCClub/Event.cc"
+    ],
+    "directory": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build",
+    "file": "/home/ketrix/programs/cpp/Yadro/git/PCClub/Event.cc",
+    "output": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build/CMakeFiles/club_simulator.dir/Event.cc.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-I/home/ketrix/programs/cpp/Yadro/git/PCClub",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-std=c++20",
+      "-c",
+      "-o",
+      "CMakeFiles/club_simulator.dir/EventReader.cc.o",
+      "/home/ketrix/programs/cpp/Yadro/git/PCClub/EventReader.cc"
+    ],
+    "directory": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build",
+    "file": "/home/ketrix/programs/cpp/Yadro/git/PCClub/EventReader.cc",
+    "output": "/home/ketrix/programs/cpp/Yadro/git/PCClub/build/CMakeFiles/club_simulator.dir/EventReader.cc.o"
+  }
+]
