@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
     try {
         for (;;) {
             auto event = eventFactory.create();
-            club.addEvent(event);
+            club.addEvent(std::move(event));
         }
     } catch (const ParseError& pe) {
         std::cout << pe.what() << '\n';
