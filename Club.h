@@ -47,7 +47,7 @@ private:
             : pimpl_{s.pimpl_->clone()} {
         }
 
-        IEvent(IEvent&& s)
+        IEvent(IEvent&& s) noexcept
             : pimpl_{std::move(s.pimpl_)} {
         }
 
@@ -56,7 +56,7 @@ private:
             return *this;
         }
 
-        IEvent& operator=(IEvent&& s) {
+        IEvent& operator=(IEvent&& s) noexcept {
             pimpl_ = std::move(s.pimpl_);
             return *this;
         }
