@@ -101,7 +101,7 @@ public:
         }
     }
 
-    void process(IncomingClientSet event) {
+    void process(const IncomingClientSet& event) {
         std::cout << event << '\n';
         if (auto it = manager_.clients_.find(event.clientName_); it == std::end(manager_.clients_)) {
             std::cout << OutgoingClientError{

@@ -36,7 +36,7 @@ struct IncomingClientSet : Event {
 
     IncomingClientSet(uint64_t time, const std::string& clientName, uint64_t tableId);
 
-    std::string placeIsBusyError();
+    std::string placeIsBusyError() const;
     std::string clientUnknownError() const;
 
     friend std::ostream& operator<<(std::ostream& os, const IncomingClientSet& event);

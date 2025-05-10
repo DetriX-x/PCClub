@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& os, const IncomingClientArraved& event) {
 IncomingClientSet::IncomingClientSet(uint64_t time, const std::string& clientName, uint64_t tableId)
     : Event(time, clientName), tableId_{tableId} {}
 
-std::string IncomingClientSet::placeIsBusyError() {
+std::string IncomingClientSet::placeIsBusyError() const {
     return "PlaceIsBusy";
 }
 
