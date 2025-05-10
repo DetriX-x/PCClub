@@ -81,7 +81,7 @@ public:
         }
     }
 
-    void process(IncomingClientArraved event) {
+    void process(const IncomingClientArraved& event) {
         std::cout << event << '\n';
         if (event.time_ >= manager_.endTime_ || event.time_ < manager_.startTime_) {
             std::cout << OutgoingClientError{
@@ -113,7 +113,7 @@ public:
         manager_.setClientToTable(event.time_, event.clientName_, event.tableId_, event.placeIsBusyError());
     }
 
-    void process(IncomingClientWaiting event) {
+    void process(const IncomingClientWaiting& event) {
         std::cout << event << '\n';
         if (manager_.busyTables_.size() != manager_.countOfTables_) {
             std::cout << OutgoingClientError{
@@ -131,7 +131,7 @@ public:
         manager_.clients_[event.clientName_].second = std::prev(manager_.clientsQueue_.end());
     }
 
-    void process(IncomingClientLeft event) {
+    void process(const IncomingClientLeft& event) {
         std::cout << event << '\n';
         if (auto clientIt = manager_.clients_.find(event.clientName_); clientIt != std::end(manager_.clients_)) {
             manager_.sendOffClient(clientIt, event.time_);
